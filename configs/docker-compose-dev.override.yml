@@ -1,0 +1,27 @@
+version: '3'
+services:
+  main:
+    ports: []
+    environment: []
+    volumes: []
+    links: []
+    depends_on: []
+  redis:
+    build:
+      context: ../
+      dockerfile: configs/Dockerfile-empty
+  # mongo:
+  #   build:
+  #     context: ../
+  #     dockerfile: configs/Dockerfile-empty
+  #   command: 'echo "ready!"'
+  # mongoimport:
+  #   build:
+  #     context: ../
+  #     dockerfile: configs/Dockerfile-empty
+  #   command: 'echo "ready!"'
+  mysql:
+    build:
+      context: ../
+      dockerfile: configs/Dockerfile-empty
+    command: 'echo "ready!"'

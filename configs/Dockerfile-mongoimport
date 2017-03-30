@@ -1,0 +1,15 @@
+
+FROM mongo:3.2
+
+ADD data/mongo/users.json \
+  /tmp/
+CMD mongo test \
+  --host mongo \
+  --eval "db.dropDatabase();" && \
+  mongoimport \
+  --host mongo \
+  --db test \
+  --collection users \
+  --type json \
+  --jsonArray \
+  --file /tmp/users.json

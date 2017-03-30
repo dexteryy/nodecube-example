@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "58c90e81e2f93d002b3834f5"
+  },
+  "updatedAt": {
+    "$date": "2017-03-15T10:50:43.855Z"
+  },
+  "createdAt": {
+    "$date": "2017-03-15T09:50:57.141Z"
+  },
+  "username": "dexteryy",
+  "email": "dexter.yy@gmail.com",
+  "password": "$2a$10$PoiHZeXSsL7MNA86FAoenuHdGUh22IKVud1AdygGZ/q7DQmo3czXy",
+  "sheet": {
+    "name": "Dexter Yang",
+    "desc": "",
+    "phone": "",
+    "wechat": "dexter_yy",
+    "qq": "",
+    "address": ""
+  },
+  "group": "superadmin",
+  "__v": 0
+}]
