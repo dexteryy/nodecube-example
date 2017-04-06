@@ -1,6 +1,6 @@
 {
   "name": "nodecube-example",
-  "description": "",
+  "description": "Boilerplate code and a demo for HTTP API projects based on nodecube",
   "author": "dexteryy <dexter.yy@gmail.com>",
   "contributors": [],
   "bugs": {
@@ -10,6 +10,7 @@
   "version": "0.1.0",
   "main": "server.js",
   "scripts": {
+    "precommit": "npm run lint && npm run build",
     "lint": "./node_modules/eslint/bin/eslint.js server/**",
     "build": "if [ -d build ]; then rm -r build; fi; npm run build:server",
     "build:server": "./node_modules/babel-cli/bin/babel.js server --out-dir build --source-maps",
@@ -17,6 +18,7 @@
     "test:nobuild": "./node_modules/mocha/bin/mocha build/**/*.spec.js",
     "debug": "npm run build && node --inspect=localhost:8130 --debug-brk server.js",
     "start": "npm run build && node server.js",
+    "upgrade": "rm -rf ./node_modules yarn.lock && yarn",
     "dev": "COMPOSE_PROJECT_NAME=nodecube-example PORT=8030 DEBUG_PORT=8130 AUTO_RESTART=no CUSTOM_CMD=\"npm run start\" docker-compose -f ./node_modules/nodecube/configs/docker-compose-dev.yml -f configs/docker-compose-dev.override.yml up",
     "dev:debug": "COMPOSE_PROJECT_NAME=nodecube-example PORT=8030 DEBUG_PORT=8130 AUTO_RESTART=no CUSTOM_CMD=\"npm run debug\" docker-compose -f ./node_modules/nodecube/configs/docker-compose-dev.yml -f configs/docker-compose-dev.override.yml up",
     "dev:test": "COMPOSE_PROJECT_NAME=nodecube-example PORT=8030 DEBUG_PORT=8130 AUTO_RESTART=no CUSTOM_CMD=\"npm run test\" docker-compose -f ./node_modules/nodecube/configs/docker-compose-dev.yml -f configs/docker-compose-dev.override.yml up",
@@ -25,9 +27,6 @@
     "dev:reset": "docker rm -f nodecube-example-service; docker rmi nodecube-example-service; npm run dev:empty"
   },
   "config": {
-    "ghooks": {
-      "pre-commit": "npm run lint"
-    },
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
@@ -36,8 +35,8 @@
     "node": ">=7.7.4"
   },
   "dependencies": {
-    "hifetch": "^1.4.1",
-    "nodecube": "^0.1.0",
+    "hifetch": "^1.4.4",
+    "nodecube": "^0.1.18",
     "oneapm": "^1.2.20"
   },
   "devDependencies": {}
