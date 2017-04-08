@@ -2,10 +2,29 @@
 
 import request from 'supertest';
 import app from '../../../server';
+import nock from 'nock';
+import jsonfile from 'jsonfile';
 
 describe('github', function () {
 
-  this.timeout(8000);
+  beforeEach(function () {
+    nock('https://api.github.com')
+      .defaultReplyHeaders({
+        'X-Powered-By': 'nock',
+      })
+      .get('/users/dexteryy/orgs')
+      .reply(200, function () {
+        return jsonfile.readFileSync('./server/api/github/mock/orgs.json');
+      });
+    nock('https://api.github.com')
+      .defaultReplyHeaders({
+        'X-Powered-By': 'nock',
+      })
+      .get('/users/dexteryy/repos')
+      .reply(200, function () {
+        return jsonfile.readFileSync('./server/api/github/mock/repos.json');
+      });
+  });
 
   it('/api/github/users/:username', function (done) {
     request(app)

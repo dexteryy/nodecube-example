@@ -32,12 +32,26 @@
     }
   },
   "engines": {
-    "node": ">=7.7.4"
+    "node": ">=7.8"
   },
   "dependencies": {
-    "hifetch": "^1.4.4",
-    "nodecube": "^0.1.18",
-    "oneapm": "^1.2.20"
+    "nodecube": "^0.1.22"
   },
-  "devDependencies": {}
+  "keywords": [
+    "restful",
+    "api-service",
+    "microservice",
+    "12-factor",
+    "docker",
+    "docker-compose",
+    "express",
+    "jwt",
+    "es6",
+    "async-await",
+    "boilerplate",
+    "starter-kit",
+    "generator",
+    "minimal",
+    "zero-configuration"
+  ]
 }

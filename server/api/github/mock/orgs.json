@@ -1,0 +1,28 @@
+[
+  {
+    "login": "Flipboard",
+    "id": 457049,
+    "url": "https://api.github.com/orgs/Flipboard",
+    "repos_url": "https://api.github.com/orgs/Flipboard/repos",
+    "events_url": "https://api.github.com/orgs/Flipboard/events",
+    "hooks_url": "https://api.github.com/orgs/Flipboard/hooks",
+    "issues_url": "https://api.github.com/orgs/Flipboard/issues",
+    "members_url": "https://api.github.com/orgs/Flipboard/members{/member}",
+    "public_members_url": "https://api.github.com/orgs/Flipboard/public_members{/member}",
+    "avatar_url": "https://avatars3.githubusercontent.com/u/457049?v=3",
+    "description": ""
+  },
+  {
+    "login": "douban-f2e",
+    "id": 3303384,
+    "url": "https://api.github.com/orgs/douban-f2e",
+    "repos_url": "https://api.github.com/orgs/douban-f2e/repos",
+    "events_url": "https://api.github.com/orgs/douban-f2e/events",
+    "hooks_url": "https://api.github.com/orgs/douban-f2e/hooks",
+    "issues_url": "https://api.github.com/orgs/douban-f2e/issues",
+    "members_url": "https://api.github.com/orgs/douban-f2e/members{/member}",
+    "public_members_url": "https://api.github.com/orgs/douban-f2e/public_members{/member}",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/3303384?v=3",
+    "description": null
+  }
+]
