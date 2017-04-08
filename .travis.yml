@@ -1,0 +1,32 @@
+
+dist: trusty
+sudo: required
+
+language: node_js
+node_js:
+  - "7.7"
+
+cache: yarn
+
+services:
+  - docker
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.12.0
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+install:
+  - cp configs/env.sample.config env.config
+  - cp Dockerfile Dockerfile-dev
+  - yarn
+
+script:
+  - npm run lint
+  - npm run dev:test

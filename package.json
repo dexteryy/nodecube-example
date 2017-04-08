@@ -6,11 +6,14 @@
   "bugs": {
     "url": "https://github.com/dexteryy/nodecube-example/issues"
   },
+  "license": "MIT",
+  "homepage": "https://github.com/dexteryy/nodecube-example",
   "repository": "https://github.com/dexteryy/nodecube-example",
   "version": "0.1.0",
   "main": "server.js",
   "scripts": {
     "precommit": "npm run lint && npm run build",
+    "prepush": "npm run lint && npm run dev:test",
     "lint": "./node_modules/eslint/bin/eslint.js server/**",
     "build": "if [ -d build ]; then rm -r build; fi; npm run build:server",
     "build:server": "./node_modules/babel-cli/bin/babel.js server --out-dir build --source-maps",
@@ -21,7 +24,7 @@
     "upgrade": "rm -rf ./node_modules yarn.lock && yarn",
     "dev": "COMPOSE_PROJECT_NAME=nodecube-example PORT=8030 DEBUG_PORT=8130 AUTO_RESTART=no CUSTOM_CMD=\"npm run start\" docker-compose -f ./node_modules/nodecube/configs/docker-compose-dev.yml -f configs/docker-compose-dev.override.yml up",
     "dev:debug": "COMPOSE_PROJECT_NAME=nodecube-example PORT=8030 DEBUG_PORT=8130 AUTO_RESTART=no CUSTOM_CMD=\"npm run debug\" docker-compose -f ./node_modules/nodecube/configs/docker-compose-dev.yml -f configs/docker-compose-dev.override.yml up",
-    "dev:test": "COMPOSE_PROJECT_NAME=nodecube-example PORT=8030 DEBUG_PORT=8130 AUTO_RESTART=no CUSTOM_CMD=\"npm run test\" docker-compose -f ./node_modules/nodecube/configs/docker-compose-dev.yml -f configs/docker-compose-dev.override.yml up",
+    "dev:test": "COMPOSE_PROJECT_NAME=nodecube-example PORT=8030 DEBUG_PORT=8130 AUTO_RESTART=no CUSTOM_CMD=\"npm run test\" docker-compose -f ./node_modules/nodecube/configs/docker-compose-dev.yml -f configs/docker-compose-dev.override.yml up --abort-on-container-exit",
     "dev:rebuild": "npm run dev:reset; npm run dev:test",
     "dev:empty": "docker rm -f nodecube-example-redis nodecube-example-mongo nodecube-example-mongoimport nodecube-example-mysql; docker rmi nodecube-example-mongoimport",
     "dev:reset": "docker rm -f nodecube-example-service; docker rmi nodecube-example-service; npm run dev:empty"
@@ -35,7 +38,7 @@
     "node": ">=7.8"
   },
   "dependencies": {
-    "nodecube": "^0.1.22"
+    "nodecube": "^0.1.23"
   },
   "keywords": [
     "restful",

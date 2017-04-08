@@ -6,22 +6,23 @@ services:
     volumes: []
     links: []
     depends_on: []
-  redis:
-    build:
-      context: ../
-      dockerfile: configs/Dockerfile-empty
+  # redis:
+  #   build:
+  #     context: ../
+  #     dockerfile: configs/Dockerfile-empty
+  #   command: 'sleep 86400'
   # mongo:
   #   build:
   #     context: ../
   #     dockerfile: configs/Dockerfile-empty
-  #   command: 'echo "ready!"'
+  #   command: 'sleep 86400'
   # mongoimport:
   #   build:
   #     context: ../
   #     dockerfile: configs/Dockerfile-empty
-  #   command: 'echo "ready!"'
+  #   command: 'sleep 86400'
   mysql:
     build:
       context: ../
       dockerfile: configs/Dockerfile-empty
-    command: 'echo "ready!"'
+    command: 'sleep 86400'
