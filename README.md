@@ -1,6 +1,17 @@
 
 # nodecube-example
 
+[![Build Status][travis-image]][travis-url]
+[![Dependencies Status][dep-image]][dep-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
+
+[travis-image]: https://img.shields.io/travis/dexteryy/nodecube-example/master.svg
+[travis-url]: https://travis-ci.org/dexteryy/nodecube-example
+[dep-image]: https://david-dm.org/dexteryy/nodecube-example.svg
+[dep-url]: https://david-dm.org/dexteryy/nodecube-example
+[coveralls-image]: https://img.shields.io/coveralls/dexteryy/nodecube-example/master.svg
+[coveralls-url]: https://coveralls.io/r/dexteryy/nodecube-example?branch=master
+
 Boilerplate code and a demo for HTTP API projects based on nodecube.
 
 > * [nodecube](https://github.com/dexteryy/webcube): nodecube is a batch of continuously updated base code and configurations for the minimal modern node.js service that conform to [RESTful API](https://github.com/marmelab/awesome-rest#design), [12-Factor App](https://12factor.net/), [Microservice Architecture](https://github.com/mfornos/awesome-microservices#theory)

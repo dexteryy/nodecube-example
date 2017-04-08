@@ -38,7 +38,7 @@
     "node": ">=7.8"
   },
   "dependencies": {
-    "nodecube": "^0.1.23"
+    "nodecube": "^0.2.0"
   },
   "keywords": [
     "restful",
