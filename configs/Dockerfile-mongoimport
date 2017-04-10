@@ -3,13 +3,20 @@ FROM mongo:3.2
 
 ADD data/mongo/users.json \
   /tmp/
-CMD mongo test \
+
+CMD until echo 'db.stats().ok' | mongo mongo/[DB_NAME] --quiet; \
+    do sleep 1; \
+  done && \
+  mongo [DB_NAME] \
   --host mongo \
   --eval "db.dropDatabase();" && \
+  # NOTE: keep the above lines
   mongoimport \
   --host mongo \
   --db test \
   --collection users \
   --type json \
   --jsonArray \
-  --file /tmp/users.json
+  --file /tmp/users.json; \
+  # NOTE: keep the following line
+  sleep 8640

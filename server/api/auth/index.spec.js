@@ -18,6 +18,25 @@ describe('auth', function () {
     });
   });
 
+  it('/api/signin (with exist user + wrong password)', function (done) {
+    request(app)
+      .post('/api/signin')
+      .set('Accept', 'application/json')
+      .send({
+        id: 'dexteryy',
+        password: PASSWORD,
+      })
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then(res => {
+        const body = res.body;
+        if (body.status !== -1) {
+          return done(new Error('NO WRONG PASSWORD ERROR'));
+        }
+        return done();
+      }).catch(done);
+  });
+
   it('/api/signup', function (done) {
     request(app)
       .post('/api/signup')
