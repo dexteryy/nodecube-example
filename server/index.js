@@ -1,7 +1,7 @@
 
 import { httpService } from 'nodecube';
 import api from './api';
-import connectServices from './utils/connectServices';
+import * as connectServices from './utils/connectServices';
 import * as validators from './utils/validators';
 
 const { service, server } = httpService({

@@ -21,6 +21,7 @@
     "test:nobuild": "./node_modules/mocha/bin/mocha build/**/*.spec.js",
     "debug": "npm run build && node --inspect=localhost:8130 --debug-brk server.js",
     "start": "npm run build && node server.js",
+    "update": "rm -rf ./node_modules && yarn",
     "upgrade": "rm -rf ./node_modules yarn.lock && yarn",
     "dev": "COMPOSE_PROJECT_NAME=nodecube-example PORT=8030 DEBUG_PORT=8130 AUTO_RESTART=no CUSTOM_CMD=\"npm run start\" docker-compose -f ./node_modules/nodecube/configs/docker-compose-dev.yml -f configs/docker-compose-dev.override.yml up",
     "dev:debug": "COMPOSE_PROJECT_NAME=nodecube-example PORT=8030 DEBUG_PORT=8130 AUTO_RESTART=no CUSTOM_CMD=\"npm run debug\" docker-compose -f ./node_modules/nodecube/configs/docker-compose-dev.yml -f configs/docker-compose-dev.override.yml up",

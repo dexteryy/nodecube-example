@@ -3,7 +3,7 @@
 // import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
-import connectServices from '../../utils/connectServices';
+import * as connectServices from '../../utils/connectServices';
 
 describe('auth', function () {
 

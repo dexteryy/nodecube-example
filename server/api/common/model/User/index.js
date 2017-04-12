@@ -1,6 +1,8 @@
 
 import mongoose from 'mongoose';
-import connectServices from '../../../../utils/connectServices';
+import {
+  flMongo as mongo,
+} from '../../../../utils/connectServices';
 import isEmail from 'validator/lib/isEmail';
 import {
   RE_SPECIAL_CHAR,
@@ -8,10 +10,6 @@ import {
   isUsername,
   isPassword,
 } from '../../../../utils/validators';
-
-const {
-  mongo,
-} = connectServices;
 
 const Schema = mongoose.Schema;
 
