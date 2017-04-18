@@ -133,14 +133,25 @@ authAPI.post('/signin', async function (req, res) {
       });
     }
     const info = userInfo(user);
-    const token = jwt.sign({
-      ...info,
-    }, JWT_SECRET);
-    res.json({
-      status: 0,
-      token,
-      ...info,
+    const results = await new Promise(resolve => {
+      jwt.sign({
+        ...info,
+      }, JWT_SECRET, {}, (err, token) => {
+        if (err) {
+          resolve({
+            status: -4,
+            message: `JWT ERROR: ${err.message}`,
+          });
+        } else {
+          resolve({
+            status: 0,
+            token,
+            ...info,
+          });
+        }
+      });
     });
+    res.json(results);
   } catch (ex) {
     errorResponse(req, res)(ex);
   }
